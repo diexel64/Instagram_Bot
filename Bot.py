@@ -18,13 +18,13 @@ class Bot(object):
         self.hashtags = random.sample(self.hashtags, randint(5,10))
         self.user = str(config['DEFAULT']['user'])
         #self.password = str(config['DEFAULT']['password'])
-        self.webdriver = webdriver.Chrome(executable_path=r'C:\Users\Usuario\Desktop\Programacion\AllPrograms\Python\InstaBot\chromedriver.exe')
+        self.webdriver = webdriver.Chrome(executable_path=r'C:\Users\User\Desktop\or\wherever\you\choose\chromedriver.exe')
 
     def connection(self, pswd=None):
         
         if pswd is None:
             # keyring is going to get the credential needed from the windows credentials manager, if you want to use this you need to add the credential to the credentials manager of your computer.
-            pswd = keyring.get_password("https://www.instagram.com/accounts/login/?source=auth_switcher","yourusername") # introduce your Instagram username here
+            pswd = keyring.get_password("https://www.instagram.com/accounts/login/?source=auth_switcher",self.user) # introduce your Instagram username in the config file !
         
         wd = self.webdriver
         wd.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
